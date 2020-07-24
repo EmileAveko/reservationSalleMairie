@@ -1,0 +1,181 @@
+<div class="container-contact1001">
+    <div class="wrap-contact1001">
+        <form #clientForm="ngForm" class="contact1001-form validate-form">
+            <span class="contact1001-form-title">
+                Veuillez saisir vos informations
+            </span>
+{{clientForm.value |json}}
+
+          
+          
+            <label class="label-input1001" for="first-name">Votre nom *</label>
+            <div class="wrap-input1001 rs1-wrap-input1001 validate-input" data-validate="Veuillez entrer votre  nom">
+                <input id="first-name" class="input1001" type="text" name="first-name" placeholder="Votre nom" [(ngModel)]="client.nom">
+                <span class="focus-input1001"></span>
+            </div>
+            <div class="wrap-input1001 rs2-wrap-input1001 validate-input" data-validate="Veuiller écrire votre prénom">
+                <input class="input1001" type="text" name="sur-name" placeholder="votre prénom" [(ngModel)]="client.sexe">
+                <span class="focus-input1001"></span>
+            </div>
+
+            <label class="label-input1001" for="email">Votre email *</label>
+            <div class="wrap-input1001 validate-input" data-validate = "Valid email est requis: ex@abc.xyz">
+                <input id="email" class="input1001" type="text" name="email" placeholder="Ex: example@email.com" [(ngModel)]="client.mail">
+                <span class="focus-input1001"></span>
+            </div>
+
+            <label class="label-input1001" for="org">Est-ce pour une organisation?  *</label>
+            <div class="wrap-input1001">
+                
+                <select [(ngModel)]="client.status" class="custom-select form-control input1001" [(ngModel)]="client.status" name="isOrganised">
+                    <option (click)=" isOrganisation = true">oui</option>
+                    <option selected (click) =" isOrganisation = false" >non</option>
+                  </select>
+            </div>
+            
+
+            <label  *ngIf="isOrganisation" class="label-input1001" for="organ">Veuillez mentionnez le nom de celle ci *</label>
+            <div class="wrap-input1001">
+                <input *ngIf="isOrganisation"  id="organ" class="input1001" type="text" name="organ" placeholder="EA AND CO" ngModel>
+                <span class="focus-input1001"></span>
+            </div>
+
+            <label class="label-input1001" for="phone">Votre Numéro de téléphone *</label>
+            <div class="wrap-input1001">
+                <input id="phone" class="input1001" type="text" name="phone" placeholder="Ex: +228 70014512" [(ngModel)]="client.contact">
+                <span class="focus-input1001"></span>
+            </div>
+
+      <div ngModelGroup="listreservations">
+            <label class="label-input1001" for="capacity">Le nom de l'évènement  *</label>
+            <div class="wrap-input1001">
+                <input id="phone" class="input1001" type="text" name="capacity" placeholder="remise de diplome" [(ngModel)]="reservation.nomev">
+                <span class="focus-input1001"></span>
+            </div>
+
+
+            
+            <label class="label-input1001" for="begin"> Date et Heure de départ</label>
+            <div class="wrap-input1001 validate-input" data-validate = "Date et Heure de début">
+                <input id="begin" class="input1001" min = "2019-01-01" max = "2020-01-01" type="datetime-local" name="begin" placeholder="Date et Heure de début" [(ngModel)]="reservation.heuredep" value="2018-02-27T21:10">
+                <span class="focus-input1001"></span>
+            </div>
+
+            <label class="label-input1001" for="end"> Date et Heure de fin</label>
+            <div class="wrap-input1001 validate-input" data-validate = "Date et Heure de fin">
+                <input id="end" class="input1001" type="datetime-local" name="end" placeholder="Date et Heure de fin" [(ngModel)]="reservation.heurefin">
+                <span class="focus-input1001"></span>
+            </div> 
+
+
+            <label class="label-input1001" for="capacity">Le nombre de personnes  *</label>
+            <div class="wrap-input1001">
+                <input id="phone" class="input1001" type="text" name="capacity" placeholder="Ex: 100" [(ngModel)]="reservation.nbrpers">
+                <span class="focus-input1001"></span>
+            </div>
+
+    </div>     
+            <label class="label-input1001" for="isEquiped">Souhaitez vous avoir  des équipements ? *</label>
+            <div class="wrap-input1001 form-group">
+                <select class=" custom-select form-control input1001"  ngModel name="isEquiped">
+                  <option selected>oui</option>
+                  <option >non</option>
+                </select>
+            </div>
+
+           
+
+            <div class="container-contact1001-form-btn">
+                <button class="contact1001-form-btn" (click)="onModify()" >
+                    Envoyer
+                </button>
+                <!--[routerLink]="['salle']"-->
+            </div>
+        </form>
+
+        <div class="contact1001-more flex-col-c-m" style="background-image: url('/assets/images/client/bg-01.jpg');">
+            <div class="flex-w size1 p-b-47">
+                <div class="txt1 p-r-25">
+                    <span class="lnr lnr-map-marker"></span>
+                </div>
+
+                <div class="flex-col size2">
+                    <span class="txt1 p-b-20">
+                        Address
+                    </span>
+
+                    <span class="txt2">
+                        Mada Center 8th floor, 379 Hudson St, New York, NY 10018 US
+                    </span>
+                </div>
+            </div>
+
+            <div class="dis-flex size1 p-b-47">
+                <div class="txt1 p-r-25">
+                    <span class="lnr lnr-phone-handset"></span>
+                </div>
+
+                <div class="flex-col size2">
+                    <span class="txt1 p-b-20">
+                        Téléphone
+                    </span>
+
+                    <span class="txt3">
+                        +228 90909090
+                    </span>
+                </div>
+            </div>
+
+            <div class="dis-flex size1 p-b-47">
+                <div class="txt1 p-r-25">
+                    <span class="lnr lnr-envelope"></span>
+                </div>
+
+                <div class="flex-col size2">
+                    <span class="txt1 p-b-20">
+                        Notre Adresse mail
+                    </span>
+
+                    <span class="txt3">
+                        projetmairie228@gmail.com
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<div id="dropDownSelect1"></div>
+
+<!--===============================================================================================-->
+<script src="vendor/jquery/jquery-3.2.1.min.js"></script>
+<!--===============================================================================================-->
+<script src="vendor/animsition/js/animsition.min.js"></script>
+<!--===============================================================================================-->
+
+<!--===============================================================================================-->
+<script src="vendor/select2/select2.min.js"></script>
+<script>
+    $(".selection-2").select2({
+        minimumResultsForSearch: 20,
+        dropdownParent: $('#dropDownSelect1')
+    });
+</script>
+<!--===============================================================================================-->
+<script src="vendor/daterangepicker/moment.min.js"></script>
+<script src="vendor/daterangepicker/daterangepicker.js"></script>
+<!--===============================================================================================-->
+<script src="vendor/countdowntime/countdowntime.js"></script>
+<!--===============================================================================================-->
+<script src="js/main.js"></script>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-23581568-13"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-23581568-13');
+</script>

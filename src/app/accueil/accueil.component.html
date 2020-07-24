@@ -16,69 +16,42 @@ bonjour Boostrap <i class="fa fa-smile-o" aria-hidden="true"></i>
 le contenu de la propriété color est {{color}}
 <button (click)="sendEvent()" class="btn btn-danger"  >la force</button>
 -->
-<div class="container-fluid red ">
-<div id="wrap">
+<h1> File Upload </h1>
 
-    <div class="row myrow">
-        <div id="1" class="col-md-3">
-            1
-        </div>
-        <div id="2" class="col-md-3">
-            2
-        </div>
-        <div id="3" class="col-md-3">
-            3
-        </div>
-        <div id="4" class="col-md-3">
-            4
-        </div>
-    </div>
-    <div class="row">
-        <div id="5" class="col-md-3">
-            5
-        </div>
-        <div id="6" class="col-md-3">
-            6
-        </div>
-        <div id="7" class="col-md-3">
-            7
-        </div>
-        <div id="8" class="col-md-3">
-            8
-        </div>
-        
-    </div>
+<input type="file" id="thepic" (change)="onFileSelected($event)">
+<button type="button" (click)="onUpload()"> upload</button>
+<p> {{em}}</p>
 
-    <div class="row">
-        <div id="1" class="col-md-3">
-            1
-        </div>
-        <div id="2" class="col-md-3">
-            2
-        </div>
-        <div id="3" class="col-md-3">
-            3
-        </div>
-        <div id="4" class="col-md-3">
-            4
-        </div>
+<!--<input type="file" class="custom-file-input" id="customFileLangHTML">-->
+<!--<div class="input-group">
+    <div class="input-group-prepend">
+      <span class="input-group-text" id="inputGroupFileAddon01">Upload</span>
     </div>
-    <div class="row">
-        <div id="5" class="col-md-3">
-            5
-        </div>
-        <div id="6" class="col-md-3">
-            6
-        </div>
-        <div id="7" class="col-md-3">
-            7
-        </div>
-        <div id="8" class="col-md-3">
-            8
-        </div>
-        
+    <div class="custom-file">
+      <input type="file" class="custom-file-input" id="inputGroupFile01"
+        aria-describedby="inputGroupFileAddon01">
+      <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
     </div>
+  </div>-->
 
 
+  <div class="container row">
+    <div class="col-md-6">
+        <input type="text" class="form-control" id="name" placeholder="image name" [(ngModel)]="imageName"
+            name="name" />
+    </div>
+    <div class="col-md-6">
+        <input type="button" (click)="getImage()" value="Get Image">
+
+    </div>
 </div>
+
+<div class="container row">
+    <div class="col-md-12">
+        <div *ngIf=retrievedImage>
+            <img [src]="retrievedImage">
+        </div>
+    </div>
 </div>
+
+  

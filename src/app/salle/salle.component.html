@@ -1,0 +1,89 @@
+<div id="booking" class="section">
+    <div class="section-center">
+        <div class="container">
+            <div class="row">
+                <div class="booking-form">
+                    <div class="form-header">
+                        <h1>Création de salle</h1>
+                    </div>
+                    <form #FormSalle ="ngForm">
+                        {{FormSalle.value|json}}
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <span class="form-label">Nom de la salle</span>
+                                    <input class="form-control" type="text" placeholder="Entrer le nom de la salle" name="sallename" [(ngModel)]="salle.nomsal" name="nom">
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <span class="form-label">Adresse de la salle</span>
+                                    <input class="form-control" type="email" placeholder="Enter your email" name = "adressname" [(ngModel)]="salle.adresse" name="adresse">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <span class="form-label">D'éventuels équipements?</span>
+                            <select class="form-control">
+                                <option >oui</option>
+                                <option  selected>non</option>
+                            </select>    
+                            <span class="select-arrow"></span>
+                           
+                        </div>
+                        <div class="form-group">
+                            <span class="form-label">Gratuité pour tous types de client ?</span>
+                            <select class="form-control">
+                                <option (click)=" isVisible = true">oui</option>
+                                <option (click)=" isVisible = false" selected>non</option>
+                            </select>    
+                            <span class="select-arrow"></span>
+                        </div>
+                        <div class="form-group">
+                            <span class="form-label" *ngIf="isVisible" >Le montant de la salle</span>
+                            <input class="form-control" *ngIf="isVisible" type="text" placeholder="Entrer le montant en FCFA" [(ngModel)]="salle.prix" name="prix"> 
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <div class="row">
+                                    <div class="col-sm-4">
+                                        <div class="form-group">
+                                            <span class="form-label">Surface</span>
+                                            <select class="form-control" [(ngModel)]="salle.surface" name="surface">
+                                                <option *ngFor="let surf of surfaces">{{surf}}</option>
+                                            </select>
+                                            <span class="select-arrow"></span>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <div class="form-group">
+                                            <span class="form-label"> PLACES MINIMUM </span>
+                                            <select class="form-control" [(ngModel)]="salle.capmin" name="capmin">
+                                                <option *ngFor="let place of places">{{place}}</option>
+                                            </select>
+                                            <span class="select-arrow"></span>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <div class="form-group">
+                                            <span class="form-label"> PLACES MAXIMUM </span>
+                                            <select class="form-control" [(ngModel)]="salle.capmax" name="capmax">
+                                                <option *ngFor="let place of places">{{place}}</option>
+                                            </select>
+                                            <span class="select-arrow"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-btn">
+                            <button class="submit-btn" (click)="createSalle()">Créer maintenant</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+

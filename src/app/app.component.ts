@@ -9,7 +9,4 @@ export class AppComponent {
   title = 'projet-mairie';
   colors = 'lalp';
 
-  processReq(message: any){
-    alert(message);
-  }
 }

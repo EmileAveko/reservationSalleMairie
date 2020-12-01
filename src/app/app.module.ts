@@ -14,6 +14,12 @@ import { ActionComponent } from './gestionreservation/boutons/action/action.comp
 import { ROUTING } from './app-routing';
 import { ClientComponent } from './client/client.component';
 import { SalleComponent } from './salle/salle.component';
+import { ClientaccueilComponent } from './clientaccueil/clientaccueil.component';
+import { ManageComponent } from './gestionreservation/manage/manage.component';
+import { GestionequipementComponent } from './gestionequipement/gestionequipement.component';
+import { HomeComponent } from './gestionreservation/home/home.component';
+import { RemisecleComponent } from './gestionreservation/remisecle/remisecle.component';
+import { EquipementComponent } from './equipement/equipement.component';
 
 
 @NgModule({
@@ -25,6 +31,12 @@ import { SalleComponent } from './salle/salle.component';
     ActionComponent,
     ClientComponent,
     SalleComponent,
+    ClientaccueilComponent,
+    ManageComponent,
+    GestionequipementComponent,
+    HomeComponent,
+    RemisecleComponent,
+    EquipementComponent,
   ],
   imports: [
     BrowserModule,

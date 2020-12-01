@@ -1,57 +1,159 @@
-<!--<p>accueil works!</p>
-<div class="alert alert-success">
-bonjour Boostrap <i class="fa fa-smile-o" aria-hidden="true"></i>
-</div>
-
-<div [style.backgroundColor]="color">
-    <p>
-        lele {{bgColor}}
-    </p>
-
-</div>
-<button class="btn btn-danger" (click)="changeStatus()"> Allumer/Eteind</button>
-
-<input [(ngModel)]="color" type="text" class="form-control" >
-
-le contenu de la propriété color est {{color}}
-<button (click)="sendEvent()" class="btn btn-danger"  >la force</button>
--->
-<h1> File Upload </h1>
-
-<input type="file" id="thepic" (change)="onFileSelected($event)">
-<button type="button" (click)="onUpload()"> upload</button>
-<p> {{em}}</p>
-
-<!--<input type="file" class="custom-file-input" id="customFileLangHTML">-->
-<!--<div class="input-group">
-    <div class="input-group-prepend">
-      <span class="input-group-text" id="inputGroupFileAddon01">Upload</span>
-    </div>
-    <div class="custom-file">
-      <input type="file" class="custom-file-input" id="inputGroupFile01"
-        aria-describedby="inputGroupFileAddon01">
-      <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
-    </div>
-  </div>-->
-
-
-  <div class="container row">
-    <div class="col-md-6">
-        <input type="text" class="form-control" id="name" placeholder="image name" [(ngModel)]="imageName"
-            name="name" />
-    </div>
-    <div class="col-md-6">
-        <input type="button" (click)="getImage()" value="Get Image">
-
-    </div>
-</div>
-
-<div class="container row">
-    <div class="col-md-12">
-        <div *ngIf=retrievedImage>
-            <img [src]="retrievedImage">
-        </div>
-    </div>
-</div>
 
   
+  <!-- ======= Header ======= -->
+  <div class="body">
+  <header id="header" class="d-flex align-items-center">
+    <div class="container d-flex flex-column align-items-center">
+
+      <h1>La Mairie</h1>
+      <h2>Désormais disposé a accueillir tous vos évènements</h2>
+      <div class="countdown d-flex justify-content-center" data-count="2020/01/08">
+        <div>
+          <h3>{{CurrentDays}}</h3>
+          <h4>Days</h4>
+        </div>
+        <div>
+          <h3>{{CurrentMonths}}</h3>
+          <h4>Months</h4>
+        </div>
+        <div>
+          <h3>{{CurrentYears}}</h3>
+          <h4>Years</h4>
+        </div>
+        <div>
+          <h3>{{CurrentHour}}</h3>
+          <h4>Hours</h4>
+        </div>
+        <div>
+          <h3>{{CurrentMinutes}}</h3>
+          <h4>Minutes</h4>
+        </div>
+        <div>
+          <h3>{{CurrentSeconds}}</h3>
+          <h4>Seconds</h4>
+        </div>
+      </div>
+
+      <div class="subscribe">
+        <h4>Retrouvez nos postes ,Bientot disponible sur toutes les plateformes!</h4>
+        <form action="forms/notify.php" method="post" role="form" class="php-email-form">
+          <div class="subscribe-form">
+            <input type="email" name="email"><input type="submit" value="Souscrivez">
+          </div>
+          <div class="mt-2">
+            <div class="loading">Loading</div>
+            <div class="error-message"></div>
+            <div class="sent-message">Your notification request was sent. Thank you!</div>
+          </div>
+        </form>
+      </div>
+
+      <div class="social-links text-center">
+        <a href="#" class="twitter"><i class=" icofont icofont-twitter"></i></a>
+        <a href="#" class="facebook"><i class="icofont icofont-facebook"></i></a>
+        <a href="#" class="instagram"><i class="icofont icofont-instagram"></i></a>
+        <a href="#" class="google-plus"><i class="icofont icofont-skype"></i></a>
+        <a href="#" class="linkedin"><i class=" icofont icofont-linkedin"></i></a>
+      </div>
+
+    </div>
+  </header><!-- End #header -->
+
+  <main id="main">
+
+    <!-- ======= About Us Section ======= -->
+    <section id="about" class="about">
+      <div class="container">
+
+        <div class="section-title">
+          <h2>La Municipalité</h2>
+        <p> Veuillez choisir une des options parmi celles en dessous</p>
+        </div>
+
+        <div class="row mt-2">
+          <div class="col-lg-4 col-md-6 icon-box">
+            <div class="icon"><i class="icofont icofont-business-man"></i></div>
+            <h4 class="title"><a [routerLink]="['/clientacceuil']">Client</a></h4>
+            <p class="description"> Reserver les salles mises a votre disposition pour tous vos évènements , a titre d'organisation ou individuel</p>
+          </div>
+          <div class="col-lg-4 col-md-6 icon-box">
+            <div class="icon"><i class="icofont icofont-waiter"></i></div>
+            <h4 class="title"><a [routerLink]="['/login']" [queryParams]="{type:employe }" >{{employe}}</a></h4>
+            <p class="description">Gerer toutes les réservations de salle des employés en toute simplicité , rapidité et sécurité</p>
+          </div>
+          <div class="col-lg-4 col-md-6 icon-box">
+            <div class="icon"><i class="icofont icofont-hotel-boy-alt"></i></div>
+            <h4 class="title"><a [routerLink]="['/login']" [queryParams]="{type:gardien }">{{gardien}}</a></h4>
+            <p class="description">Assurer personellement et de manière fiable la gestion de vos salles qui vous sont attribué</p>
+          </div>
+        </div>
+
+      </div>
+    </section><!-- End About Us Section -->
+
+    <!-- ======= Contact Us Section ======= -->
+    <section id="contact" class="contact">
+      <div class="container">
+
+        <div class="section-title">
+          <h2>Contactez Nous!</h2>
+        </div>
+
+        
+      <div class="row">
+        <div class="col-lg-4">
+
+        </div>
+          <div class="col-lg-5 d-flex align-items-stretch">
+            <div class="info">
+              <div class="address">
+                <i class="icofont icofont-google-map"></i>
+                <h4>Location:</h4>
+                <p>Lomé, Agoè, BP 535022</p>
+              </div>
+
+              <div class="email">
+                <i class="icofont  icofont-envelope"></i>
+                <h4>Email:</h4>
+                <p>projetmairie228@gmail.com</p>
+              </div>
+
+              <div class="phone">
+                <i class=" icofont icofont-phone"></i>
+                <h4>Call:</h4>
+                <p>+228 9057890</p>
+              </div>
+
+              <iframe src="assets/images/managereservation/togo-lome-birdeye-plane.jpg" frameborder="0" style="border:0; width: 100%; height: 290px;" allowfullscreen></iframe>
+            </div>
+          </div>
+          </div>
+
+         <!-- "http://maps.google.com/maps?saddr=lome"-->
+        
+
+      </div>
+    </section><!-- End Contact Us Section -->
+
+  </main><!-- End #main -->
+
+  <!-- ======= Footer ======= -->
+  <footer id="footer">
+    <div class="container">
+      <div class="copyright">
+        &copy; Copyright <strong><span>Maundy</span></strong>. All Rights Reserved
+      </div>
+      <div class="credits">
+        <!-- All the links in the footer should remain intact. -->
+        <!-- You can delete the links only if you purchased the pro version. -->
+        <!-- Licensing information: https://bootstrapmade.com/license/ -->
+        <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/maundy-free-coming-soon-bootstrap-theme/ -->
+        Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
+      </div>
+    </div>
+  </footer><!-- End #footer -->
+
+  <a href="#" class="back-to-top"><i class="icofont-simple-up"></i></a>
+
+</div>
+

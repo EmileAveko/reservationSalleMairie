@@ -1,0 +1,193 @@
+/**
+* Template Name: MeFamily - v2.1.0
+* Template URL: https://bootstrapmade.com/family-multipurpose-html-bootstrap-template-free/
+* Author: BootstrapMade.com
+* License: https://bootstrapmade.com/license/
+*/
+
+/*--------------------------------------------------------------
+# General
+--------------------------------------------------------------*/
+body {
+  font-family: "Open Sans", sans-serif;
+  color: #444444;
+}
+
+a {
+  color: #006fbe;
+}
+
+a:hover {
+  color: #008df1;
+  text-decoration: none;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: "Raleway", sans-serif;
+}
+
+
+
+/*--------------------------------------------------------------
+# Event List
+--------------------------------------------------------------*/
+.event-list .card {
+  border: 0;
+  padding: 0 30px;
+  margin-bottom: 60px;
+  position: relative;
+}
+
+.event-list .card-img {
+  width: calc(100% + 60px);
+  margin-left: -30px;
+  overflow: hidden;
+  z-index: 9;
+  border-radius: 0;
+}
+
+.event-list .card-img img {
+  max-width: 100%;
+  transition: all 0.3s ease-in-out;
+}
+
+.event-list .card-body {
+  z-index: 10;
+  background: #fff;
+  border-top: 4px solid #fff;
+  padding: 30px;
+  box-shadow: 0px 2px 15px rgba(0, 0, 0, 0.1);
+  margin-top: -60px;
+  transition: 0.3s;
+}
+
+.event-list .card-title {
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 20px;
+  color: #24325d;
+}
+
+.event-list .card-title a {
+  color: #24325d;
+  transition: 0.3s;
+}
+
+.event-list .card-text {
+  color: #5e5e5e;
+}
+
+.event-list .read-more a {
+  color: #777777;
+  text-transform: uppercase;
+  font-weight: 600;
+  font-size: 12px;
+  transition: 0.3s;
+}
+
+.event-list .read-more a:hover {
+  color: #006fbe;
+}
+
+.event-list .card:hover img {
+  transform: scale(1.1);
+}
+
+.event-list .card:hover .card-body {
+  border-color: #006fbe;
+}
+
+.event-list .card:hover .card-body .card-title a {
+  color: #006fbe;
+}
+
+@-webkit-keyframes animate-loading {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes animate-loading {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.event-list .design {
+  border-radius: 25px;
+}
+/*--------------------------------------------------------------
+# Footer
+--------------------------------------------------------------*/
+#footer {
+  background: #1d284b;
+  color: #fff;
+  font-size: 14px;
+  text-align: center;
+  padding: 30px 0;
+}
+
+#footer h3 {
+  font-size: 36px;
+  font-weight: 700;
+  color: #fff;
+  position: relative;
+  font-family: "Poppins", sans-serif;
+  padding: 0;
+  margin: 0 0 15px 0;
+}
+
+#footer p {
+  font-size: 15;
+  font-style: italic;
+  padding: 0;
+  margin: 0 0 40px 0;
+}
+
+#footer .social-links {
+  margin: 0 0 40px 0;
+}
+
+#footer .social-links a {
+  font-size: 18px;
+  display: inline-block;
+  background: #006fbe;
+  color: #fff;
+  line-height: 1;
+  padding: 8px 0;
+  margin-right: 4px;
+  border-radius: 50%;
+  text-align: center;
+  width: 36px;
+  height: 36px;
+  transition: 0.3s;
+}
+
+#footer .social-links a:hover {
+  background: #007ed8;
+  color: #fff;
+  text-decoration: none;
+}
+
+#footer .copyright {
+  margin: 0 0 5px 0;
+}
+
+#footer .credits {
+  font-size: 13px;
+}
+
+#footer .credits a {
+  color: #006fbe;
+  transition: 0.3s;
+}
+
+#footer .credits a:hover {
+  color: #008df1;
+}

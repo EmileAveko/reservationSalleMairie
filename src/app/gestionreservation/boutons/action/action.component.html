@@ -12,7 +12,7 @@
 
             <form #formMail="ngForm" (ngSubmit)="envoyerMail()"  class="contact100-form validate-form">
                 <span class="contact100-form-title">
-                    {{action}}
+                    
                 </span>
 
                 <div class="wrap-input100 validate-input" data-validate = "Name is required">
@@ -35,7 +35,7 @@
                 </div>
 
                 <div class="wrap-input100 validate-input" data-validate = "Valid email is required: ex@abc.xyz">
-                    <input class="input100" type="text" name="email" placeholder="Email" [(ngModel)]="email.senderMail">
+                    <input class="input100" type="text" name="email" placeholder="Email"  [(ngModel)]="email.senderMail">
                     <span class="focus-input100"></span>
                     <span class="symbol-input100">
                         <i class="fa fa-envelope" aria-hidden="true"></i>
@@ -49,7 +49,7 @@
 
                 <div class="container-contact100-form-btn">
                     <button class="contact100-form-btn" >
-                       
+                       send
                     </button>
                 </div>
             </form>

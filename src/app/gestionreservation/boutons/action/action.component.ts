@@ -11,21 +11,37 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./action.component.scss']
 })
 export class ActionComponent implements OnInit {
-decision: string ='Acceptation';
-action: string = 'Accepter';
+decision = 'Acceptation';
+action = 'Accepter';
+mail = '';
 email = new Email(null, null , null);
   constructor( private actionservice: ActionservService, private activatedRoute: ActivatedRoute) { }
-   
+
   ngOnInit(): void {
-  /*  this.activatedRoute.params.subscribe(
-     (params) => { this.action = params['default'] ;} 
-    )*/
+    this.activatedRoute.queryParams.subscribe(
+      (params) => {
+         console.log(params);
+         this.mail = params.id ;
+         console.log(this.mail);
+         this.email.senderMail = this.mail;
+      }
+
+      );
+
 }
 
 envoyerMail(){
- this.actionservice.sendMail(this.email);
- console.log(this.email.message);
-  //console.log(this.action);
+
+this.actionservice.sendMail(this.email).toPromise().then(
+ data => {
+
+  console.log(data);
+  if (data.headers.status === 200){
+alert('mail envoyer avec succès');
+  }
+});
+console.log(this.email);
+  // console.log(this.action);
 }
 
 }

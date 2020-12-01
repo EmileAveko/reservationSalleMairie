@@ -1,0 +1,12 @@
+<div class="card-deck">
+    <div class="card" *ngFor="let objet of Equipements">
+      <img class="card-img-top" src={{link+objet.listImageEquipement[0].nomPhoto}}  alt="/assets/images/client/bg-01.jpg">
+      <div class="card-body">
+        <h5 class="card-title"> {{objet.nom}}</h5>
+        <p class="card-text">{{objet.prix}}</p>
+        <p class="card-text"><small class="text-muted">   </small></p>
+        <button (click) ="onAdd(objet)" class="btn btn-primary">select</button>
+      </div>
+      
+    </div>
+  </div> <button (click) = "validate()"class="btn btn-primary"> validate</button>

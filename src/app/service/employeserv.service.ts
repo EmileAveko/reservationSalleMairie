@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpResponse  } from '@angular/common/http';
 import { Employe } from '../model/employe';
+import { Observable } from 'rxjs';
 
 
 @Injectable({
@@ -23,4 +24,21 @@ export class EmployeservService {
   }
   );
   }
+
+
+  retrieveEmployes(): Observable<any>{
+    return  this.http.get('http://localhost:8080/employes');
+ }
+
+   retrieveGardiens(): Observable<any>{
+    return  this.http.get('http://localhost:8080/gardiens');
+
+   }
+
+   retrieve1RoomforhomePage(): Observable<any>{
+    return  this.http.get('http://localhost:8080/sallesacceuil');
+
+   }
+
+
 }

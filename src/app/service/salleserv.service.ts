@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpResponse  } from '@angular/common/http';
 import { Salle } from '../model/salle';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -24,4 +25,17 @@ export class SalleservService {
   );
   }
 
-}
+
+  retrieveRoomforhomePage(): Observable<any>{
+   return  this.http.get('http://localhost:8080/sallesacceuil');
+
+  }
+
+
+  retrievefreeRoomforhomePage(): Observable<any>{
+    return  this.http.get('http://localhost:8080/info');
+
+   }
+
+
+  }

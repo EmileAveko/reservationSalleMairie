@@ -1,0 +1,41 @@
+<div class="row">
+  <div class="col col-lg-4">
+   
+  </div>
+  <div class="col col-lg-6">
+  <h1> Bienvenue  a la réservation</h1>
+</div>
+</div>
+
+
+
+
+     <!-- ======= Event List Section ======= -->
+     <section id="#event-list" class="event-list">
+      <div class="container">
+
+        <div class="row">
+          <div *ngFor="let salle of listSalle" class="col-md-6 d-flex align-items-stretch">
+            <div class="card">
+              <div class="card-img">
+                <img src="assets/images/managereservation/togo-lome-birdeye-plane.jpg" alt="...">
+              </div>
+              <div class="card-body">
+                <h5 class="card-title">{{salle.nomsal}}</h5>
+                <p class="font-italic text-center"> Créneau :{{salle.heuredep}} a {{salle.heurefin}}</p>
+                <p class="card-text">  Nom de salle :{{salle.nomsal}}, Adresse: {{salle.adress}}  </p>
+                <p class="card-text">  Capacité minimal :{{salle.capmin}}, Capacité maximal: {{salle.capmax}}  </p>
+                <p class="card-text"> Surface :{{salle.surface}} , {{afficherprix(salle)}} </p>
+                <button  class="design custom-select" [routerLink]="['/client']" [queryParams]="{nomSalle: salle.nomsal, capmin: salle.capmin ,capmax : salle.capmax ,heuredep : salle.heuredep ,heurefin :salle.heurefin}" (click)="clc = salle" >
+                   reserver
+                </button>
+              </div>
+            </div>
+
+              
+          </div>
+          
+        </div>
+
+      </div>
+    </section><!-- End Event List Section -->

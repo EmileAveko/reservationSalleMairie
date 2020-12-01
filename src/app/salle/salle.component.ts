@@ -9,23 +9,36 @@ import { Router } from '@angular/router';
   styleUrls: ['./salle.component.scss']
 })
 export class SalleComponent implements OnInit {
-
+  i = 0;
   isVisible = false;
-  places = [ 100, 200, 300];
+  placesmax = [ 100, 200, 300];
+  placesmin = [30, 50, 80];
   surfaces = [ 25, 30, 40, 50];
   salle = new Salle(null, null, null, null, null, null, null, null);
   constructor(private salleserv: SalleservService, private router: Router) { }
 
   ngOnInit(): void {
-    this.places.push(400);
-    this.surfaces.splice(1, 1);
+    this.salleserv.retrieveRoomforhomePage().toPromise().then(
+      res => {
+       // this.listSalle = res ;
+        console.log(res);
+      }
+  
+      );
+
   }
 
 
   createSalle(){
-    const link = ['client'];
-    this.router.navigate(link);
-    this.salleserv.createSalle(this.salle);
-    console.log(this.salle);
-  }
-}
+    // const link = ['client'];
+    // this.router.navigate(link);
+    if (this.salle.nomsal && this.salle.adress)
+    {
+      this.salleserv.createSalle(this.salle);
+      alert('Enregistrement éffectué');
+    }
+    else{
+      alert('Veuillez remplir tous les champs');
+    }
+   }
+ }

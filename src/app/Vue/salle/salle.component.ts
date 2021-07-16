@@ -14,7 +14,7 @@ export class SalleComponent implements OnInit {
   placesmax = [ 100, 200, 300];
   placesmin = [30, 50, 80];
   surfaces = [ 25, 30, 40, 50];
-  salle = new Salle(null, null, null, null, null, 'libre', null, null);
+  salle = new Salle(null, null, null, null, null, 'libre', null, null,null);
   constructor(private salleserv: SalleservService, private router: Router) { }
 
   ngOnInit(): void {
@@ -30,8 +30,7 @@ export class SalleComponent implements OnInit {
 
 
   createSalle(){
-    // const link = ['client'];
-    // this.router.navigate(link);
+    
     if (this.salle.nomsal && this.salle.adress)
     {
       this.salleserv.createSalle(this.salle);

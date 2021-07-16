@@ -9,7 +9,7 @@ import { Observable } from 'rxjs';
 export class SalleservService {
 
   remoteserveradress =  'http://localhost:8080/';
-  localserveradress = ' https://projet-gestion-mairie.herokuapp.com/';
+  localserveradress = 'https://projet-gestion-mairie.herokuapp.com/';
   constructor(private http: HttpClient) { }
 
   createSalle(salle: Salle){

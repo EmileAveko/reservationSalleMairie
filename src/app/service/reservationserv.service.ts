@@ -7,8 +7,8 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class ReservationservService {
-  localserveradress = ' https://projet-gestion-mairie.herokuapp.com/';
-  remoteserveradress = 'http://localhost:8080/';
+  localserveradress = 'https://projet-gestion-mairie.herokuapp.com/';
+  remoteserveradress ='http://localhost:8080/' ;
   
   constructor(private http: HttpClient) { }
 

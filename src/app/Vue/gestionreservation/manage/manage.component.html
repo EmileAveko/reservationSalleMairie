@@ -32,13 +32,7 @@
                 <h5 class="card-title">{{salle.nomev}}</h5>
                 <p class="font-italic text-center">{{salle.heuredep}} a {{salle.heurefin}}</p>
                 <p class="card-text">Le client repondant au nom de {{salle.nom}} souhaite reserver la salle {{salle.nomsal}},{{salle.adress}} pour {{salle.nbrpers}} participants. Ce client est joignable sur {{salle.mail}} {{salle.status ==='non' ? 'salle.prix' :'gratuit'}} </p>
-                <select  class="design custom-select">
-                  <option >Action</option>
-                  <option [routerLink]="['/actionmail']" [queryParams]="{id: salle.mail}">Accepter</option>
-                  <option [routerLink]="['/actionmail']" [queryParams]="{id: salle.mail}">Rejeter</option>
-                  <option>Modifier</option>
-                  <option>Supprimer</option>
-                   </select>
+              <button class="design custom-select" [routerLink]="['/actionmail'] " [queryParams]="{mail:salle.mail,idreserv:salle.id,nomclient:salle.nom,evnom:salle.nomev,hrdep:salle.heuredep,hrfin:salle.heurefin,nomsal:salle.nomsal}"> Décision </button>
               </div>
             </div>
 
@@ -69,7 +63,13 @@
       </div>
       <div class="credits">
         <!-- All the links in the footer should remain intact. -->
-        <!-- You can delete the links only if you purchased the pro version. -->
+        <!-- You can delete the links only if you purchased the pro version.  <select  class="design custom-select"(change)="navigateTo($event.target.value)"  >
+                  <option >Action</option>
+                  <option  value="actionmail" (click)="clc.mail = salle.mail" >Accepter</option>
+                  <option value="actionmail">Rejeter</option>
+                  <option  >Modifier</option>
+                  <option>Supprimer</option>
+                   </select>-->
         <!-- Licensing information: https://bootstrapmade.com/license/ -->
         <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/family-multipurpose-html-bootstrap-template-free/ -->
         Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>

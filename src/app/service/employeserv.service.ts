@@ -8,15 +8,15 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class EmployeservService {
-  localserveradress = 'http://localhost:8080/employe';
-  remoteserveradress = 'https://projetmairieemile.netlify.app/employe' ;
+  localserveradress = ' https://projet-gestion-mairie.herokuapp.com/';
+  remoteserveradress =  'http://localhost:8080/';
 
   constructor(private http: HttpClient) { }
   postemploye(em: Employe){
 
     const headers = new HttpHeaders({'Content-Type': 'application/json; charset=utf-8'});
 
-    this.http.post(this.localserveradress, em).toPromise().then(
+    this.http.post(this.localserveradress+'employe', em).toPromise().then(
    data => { console.log(data);
              if (!data){
        alert('bien logger');
@@ -27,16 +27,16 @@ export class EmployeservService {
 
 
   retrieveEmployes(): Observable<any>{
-    return  this.http.get('http://localhost:8080/employes');
+    return  this.http.get(this.localserveradress+'employes');
  }
 
    retrieveGardiens(): Observable<any>{
-    return  this.http.get('http://localhost:8080/gardiens');
+    return  this.http.get(this.localserveradress+'gardiens');
 
    }
 
    retrieve1RoomforhomePage(): Observable<any>{
-    return  this.http.get('http://localhost:8080/sallesacceuil');
+    return  this.http.get(this.localserveradress+'sallesacceuil');
 
    }
 

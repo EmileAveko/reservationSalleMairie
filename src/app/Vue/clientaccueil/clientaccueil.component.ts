@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { SalleservService } from '../service/salleserv.service';
-import { Clientaccueil } from '../model/clientaccueil';
+import { SalleservService } from 'src/app/service/salleserv.service';
+import { Clientaccueil } from 'src/app/model/clientaccueil';
 
 @Component({
   selector: 'app-clientaccueil',
@@ -9,7 +9,7 @@ import { Clientaccueil } from '../model/clientaccueil';
 })
 export class ClientaccueilComponent implements OnInit {
   listSalle: Array<Clientaccueil> = [];
-  clc = new Clientaccueil(null, null, null, null, null, null, null, null, null, null, null, null, null, null);
+  clc = new Clientaccueil(null,null, null, null, null, null, null, null, null, null, null, null, null, null, null);
   constructor(private salleservice: SalleservService) { }
 
   ngOnInit(): void {
@@ -21,8 +21,7 @@ export class ClientaccueilComponent implements OnInit {
 
       );
     this.onComplete();
-  //  this.listSalle.push(new Clientaccueil("d","23-16-17","an@ml","libre",12,13,"ma",13,13,"21-12-09","24-11-08","mp",null, null));
-
+  
     console.log(this.listSalle);
   }
 
@@ -41,7 +40,7 @@ export class ClientaccueilComponent implements OnInit {
       res => {
         for (const r of res){
           // tslint:disable-next-line: max-line-length
-          this.listSalle.push(new Clientaccueil(  null , null, null, null, r.capmin, r.capmax, null, r.prix, null, null, null, r.nomsal, r.surface, r.adress));
+          this.listSalle.push(new Clientaccueil(  null,null , null, null, null, r.capmin, r.capmax, null, r.prix, null, null, null, r.nomsal, r.surface, r.adress));
 
         }
         console.log(res);

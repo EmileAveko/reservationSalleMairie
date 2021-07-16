@@ -7,13 +7,13 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class ActionservService {
-  localserveradress = 'http://localhost:8080/sendmail/';
-  remoteserveradress = 'https://projetmairieemile.netlify.app/sendmail';
+  localserveradress =   'https://projet-gestion-mairie.herokuapp.com/';
+  remoteserveradress = 'http://localhost:8080/';
   constructor(private http: HttpClient) { }
 
   sendMail(email: Email) : Observable<any>{
     // tslint:disable-next-line: max-line-length
-   return this.http.get(this.localserveradress + email.senderMail + '/' + email.subject + '/' + email.message);
+   return this.http.get(this.localserveradress+'sendmail' + email.senderMail + '/' + email.subject + '/' + email.message);
 
   }
 }

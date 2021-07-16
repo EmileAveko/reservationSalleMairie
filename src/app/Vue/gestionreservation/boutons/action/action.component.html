@@ -17,14 +17,25 @@
 
                 <div class="wrap-input100 validate-input" data-validate = "Name is required">
 
-                <input  class="input100" type="date" id="start" name="trip-start"
-       value="" placeholder="date"
-       min="2018-01-01" max="2018-12-31">
+                <label  class="input100"  > Décision </label>
+       
 
-       <span class="focus-input100"></span>
-       <span class="symbol-input100">
-           <i class="fa fa-calendar" aria-hidden="true"></i>
-       </span>
+       
+       
+       <select (change)="choice($event.target.value)"  class="input100" > 
+           
+           <option  value ="Validée" > 
+            Validation
+           </option>
+           <option value = "Rejetée">
+               Rejet
+           </option>
+           <option value="Annulée">
+                Annulation
+           </option>
+       </select>
+       
+    
    </div>
                 <div class="wrap-input100 validate-input" data-validate = "Name is required">
                     <input class="input100" type="text" name="subject" placeholder="Subject" [(ngModel)]="email.subject">

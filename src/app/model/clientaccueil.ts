@@ -1,6 +1,7 @@
 export class Clientaccueil {
 
     constructor(
+     public id : number ,   
      public nom: string ,
      public dateNaissance: string,
      public mail: string,

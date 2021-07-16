@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { SalleservService } from '../service/salleserv.service';
-import { Salle } from '../model/salle';
+import { SalleservService } from 'src/app/service/salleserv.service';
+import { Salle } from 'src/app/model/salle';
 import { Router } from '@angular/router';
 
 @Component({
@@ -14,7 +14,7 @@ export class SalleComponent implements OnInit {
   placesmax = [ 100, 200, 300];
   placesmin = [30, 50, 80];
   surfaces = [ 25, 30, 40, 50];
-  salle = new Salle(null, null, null, null, null, null, null, null);
+  salle = new Salle(null, null, null, null, null, 'libre', null, null);
   constructor(private salleserv: SalleservService, private router: Router) { }
 
   ngOnInit(): void {
@@ -23,7 +23,7 @@ export class SalleComponent implements OnInit {
        // this.listSalle = res ;
         console.log(res);
       }
-  
+
       );
 
   }

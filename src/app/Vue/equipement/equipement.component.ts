@@ -1,6 +1,6 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
-import { EquipementservService } from '../service/equipementserv.service';
-import { Equipement } from '../model/equipement';
+import { EquipementservService } from 'src/app/service/equipementserv.service';
+import { Equipement } from 'src/app/model/equipement';
 
 @Component({
   selector: 'app-equipement',
@@ -15,7 +15,8 @@ export class EquipementComponent implements OnInit {
   equips = [];
    @Output() sendRequestToData = new EventEmitter();
   constructor(private equipserv: EquipementservService) { }
-  link = 'http://localhost:8080/Images/static/gallery/upload/';
+  adress= 'https://projet-gestion-mairie.herokuapp.com/' // 'http://localhost:8080/'
+  link = this.adress+'Images/static/gallery/upload/';
   ngOnInit(): void {
 
     this.equipserv.getImages().toPromise().then(
@@ -34,10 +35,10 @@ export class EquipementComponent implements OnInit {
 
   validate(){
     let somme = 0;
-    for (let som  of this.prix){
+    for (const som  of this.prix){
       somme += som ;
     }
-    console.log(somme);
+    alert('Pour les équipements ca fera un total de' + somme);
     this.prix = [];
     this.sendEvent();
   }

@@ -10,15 +10,15 @@ export class EquipementservService {
 
 
 
-  remoteserveradress = 'https://projetmairieemile.netlify.app/salle' ;
-  localserveradress = 'http://localhost:8080/equipement';
+  remoteserveradress = 'http://localhost:8080/' ;
+  localserveradress = ' https://projet-gestion-mairie.herokuapp.com/';
   constructor(private http: HttpClient) { }
 
   createEquipement(equipement: Equipement){
 
     const headers = new HttpHeaders({'Content-Type': 'application/json; charset=utf-8'});
 
-    this.http.post(this.localserveradress, equipement).toPromise().then(
+    this.http.post(this.localserveradress+'equipement', equipement).toPromise().then(
    data => { console.log(data);
              if (!data){
        alert('Enregistrer avec succès');
@@ -29,7 +29,7 @@ export class EquipementservService {
 
   createImage(form: any){
     const headers = new HttpHeaders({'Content-Type': 'application/json; charset=utf-8'});
-    this.http.post('http://localhost:8080/uploading', form, { observe: 'response' }).toPromise().then(
+    this.http.post(this.localserveradress+'uploading', form, { observe: 'response' }).toPromise().then(
       (response) => {
         if (response.status === 200) {
           console.log( 'Image uploaded successfully');
@@ -42,11 +42,11 @@ export class EquipementservService {
 
 
     getImage(imageName: string ): Observable<any> {
-     return this.http.get('http://localhost:8080/gets/' + imageName);
+     return this.http.get(this.localserveradress+'gets/' + imageName);
     }
 
     getImages(): Observable<any>{
-      return this.http.get('http://localhost:8080/equipements');
+      return this.http.get(this.localserveradress+'equipements');
     }
 
   }

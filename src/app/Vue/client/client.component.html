@@ -86,9 +86,9 @@
             <label class="label-input1001" for="org">Souhaitez vous reservez des équipements?  *</label>
             <div class="wrap-input1001">
                 
-                <select  class="custom-select form-control input1001" [(ngModel)]="client.status" name="wantEquipement">
-                    <option (click)=" isOrganisation = true" data-toggle="modal" data-target="#exampleModalCenter">oui</option>
-                    <option selected (click) =" isOrganisation = false" >non</option>
+                <select  class="custom-select form-control input1001" [(ngModel)]="client.status" name="wantedEquipement">
+                    <option (click)=" wantEquipement = true" data-toggle="modal" data-target="#exampleModalCenter">oui</option>
+                    <option selected (click) =" wantEquipement = false" >non</option>
                   </select>
             </div>
             
@@ -111,7 +111,7 @@
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer </button>
-          <button type="button" class="btn btn-primary">Ok</button>
+          <button type="button" class="btn btn-primary" (click)="onadd">Ok</button>
         </div>
       </div>
     </div>

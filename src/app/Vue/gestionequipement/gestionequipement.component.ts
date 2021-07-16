@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Equipement } from '../model/equipement';
-import { Imageequipement } from '../model/imageequipement';
-import { EquipementservService } from '../service/equipementserv.service';
+import { Equipement } from 'src/app/model/equipement';
+import { Imageequipement } from 'src/app/model/imageequipement';
+import { EquipementservService } from 'src/app/service/equipementserv.service';
 
 @Component({
   selector: 'app-gestionequipement',
@@ -32,7 +32,6 @@ onUpload(){
   uploadImage.append('imageFile', this.selectedFile);
   this.equipement.listImageEquipement.push(new Imageequipement(this.selectedFile.name));
   this.equipementserv.createImage(uploadImage);
-  console.log(uploadImage);
   this.equipementserv.createEquipement(this.equipement);
 
 

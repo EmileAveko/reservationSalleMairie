@@ -8,15 +8,15 @@ import { Observable } from 'rxjs';
 })
 export class SalleservService {
 
-  remoteserveradress = 'https://projetmairieemile.netlify.app/salle' ;
-  localserveradress = 'http://localhost:8080/salle';
+  remoteserveradress =  'http://localhost:8080/';
+  localserveradress = ' https://projet-gestion-mairie.herokuapp.com/';
   constructor(private http: HttpClient) { }
 
   createSalle(salle: Salle){
 
     const headers = new HttpHeaders({'Content-Type': 'application/json; charset=utf-8'});
 
-    this.http.post(this.localserveradress, salle).toPromise().then(
+    this.http.post(this.localserveradress+'salle', salle).toPromise().then(
    data => { console.log(data);
              if (!data){
        alert('Enregistrer avec succès');
@@ -27,15 +27,27 @@ export class SalleservService {
 
 
   retrieveRoomforhomePage(): Observable<any>{
-   return  this.http.get('http://localhost:8080/sallesacceuil');
-
+   return  this.http.get(this.localserveradress+'sallesacceuil');
   }
 
 
   retrievefreeRoomforhomePage(): Observable<any>{
-    return  this.http.get('http://localhost:8080/info');
+    return  this.http.get(this.localserveradress+'info');
 
    }
 
+   getSalle(i:number): Observable<any>{
+     return this.http.get(this.localserveradress+'salles/'+i)
+   }
+   
+   updateSalle(s: Salle){
+    this.http.put(this.localserveradress+'saller', s).toPromise().then(
+      data => { console.log(data);
+                if (!data){
+         // alert('Enregistrer avec succès');
+       }
+     }
+     );
+     }
 
   }

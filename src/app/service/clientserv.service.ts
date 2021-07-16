@@ -5,12 +5,18 @@ import { Observable } from 'rxjs';
 import { Reservation } from '../model/reservation';
 import { Equipement } from '../model/equipement';
 
+
 @Injectable({
   providedIn: 'root'
 })
+
 export class ClientservService {
-  remoteserveradress = 'https://projetmairieemile.netlify.app/client' ;
-  localserveradress = 'http://localhost:8080/client';
+  remoteserveradress ='http://localhost:8080/'  ;
+  localserveradress = 'https://projet-gestion-mairie.herokuapp.com/' ;
+  
+ /* remoteserveradress = 'https://projetmairieemile.netlify.app/client' ;
+   localserveradress = 'http://localhost:8080/client';*/
+
   anotherlocalserveraddres ='http://localhost:8080/saller';
   constructor(private http: HttpClient) { }
   headers = new HttpHeaders({'Content-Type': 'application/json; charset=utf-8'});
@@ -18,7 +24,7 @@ export class ClientservService {
 
     const headers = new HttpHeaders({'Content-Type': 'application/json; charset=utf-8'});
 
-    this.http.post(this.localserveradress, client).toPromise().then(
+    this.http.post(this.localserveradress+'client', client).toPromise().then(
    data => { console.log(data);
              if (!data){
        alert('Enregistrer avec succès');
@@ -28,7 +34,7 @@ export class ClientservService {
   }
 
  makeReservation(r: Reservation){
-  this.http.post('http://localhost:8080/reservation', r).toPromise().then(
+  this.http.post(this.localserveradress+''+'reservation', r).toPromise().then(
     data => { console.log(data);
               if (!data){
         alert('Enregistrer avec succès');
@@ -38,7 +44,7 @@ export class ClientservService {
    }
 
    updateReservation(r: Reservation){
-    this.http.put('http://localhost:8080/reservationner', r).toPromise().then(
+    this.http.put(this.localserveradress+'reservationner', r).toPromise().then(
       data => { console.log(data);
                 if (!data){
          // alert('Enregistrer avec succès');
@@ -48,7 +54,7 @@ export class ClientservService {
      }
 
      updateEquipemnt(e: Equipement){
-      this.http.put('http://localhost:8080/equipementtier', e).toPromise().then(
+      this.http.put(this.localserveradress+'equipementtier', e).toPromise().then(
         data => { console.log(data);
                   if (!data){
            // alert('Enregistrer avec succès');
@@ -60,16 +66,16 @@ export class ClientservService {
 
 
   findRoombyName(name: string): Observable<any>{
-    return  this.http.get('http://localhost:8080/sallesnome/' + name);
+    return  this.http.get(this.localserveradress+'sallesnome/' + name);
    }
 
    findClientbyMail(mail: string): Observable<any>{
-    return  this.http.get('http://localhost:8080/clientes/' + mail);
+    return  this.http.get(this.localserveradress+'clientes/' + mail);
    }
 
 
    setRoom(object: any){
-     this.http.put(this.anotherlocalserveraddres, object).toPromise().then(
+     this.http.put(this.localserveradress+'saller', object).toPromise().then(
   data => { console.log(data); }
      );
    }
